@@ -22,7 +22,7 @@ p, .description {
 }
 
 #container {
-    width: 90%;
+    width: 80%;
     max-width: 980px; 
 
     margin: 40px auto;
@@ -46,15 +46,19 @@ main {
 }
 
 button {
-    color: #FF5E84;
-    border: none;
-    font-weight: bold;
     background: none;
-    cursor: pointer;
-    outline: none;
+    color: #FF5E84;
+
+    border: none;
+
     font-size: 14px;
+    font-weight: bold;
     line-height: 18px;
     letter-spacing: 0.2px;
+
+    cursor: pointer;
+    
+    outline: none;
 }
 
 button:hover {
@@ -64,9 +68,12 @@ button:hover {
 button.fat {
     color: white;
     background: #FF5E84;
+
     width: 150px;
     height: 40px;
+
     border-radius: 6px;
+    
     box-shadow: 0px 8px 16px #FF5E8432;
 }
 
@@ -76,10 +83,12 @@ button.fat:hover {
 
 footer {
     text-align: center;
+
     font-size: 14px;
     font-weight: 400;
     line-height: 18px;
     letter-spacing: 0.2px;
+
     color: #777;
 }
 
@@ -89,16 +98,20 @@ footer a {
 
 .idea {
     display: flex;
+
     box-shadow: 0 4px 16px -8px rgb(1, 1, 1, 0.1);
     background-color: #FFF;
     border-radius: 8px;
+
     padding: 32px;
+
     margin-bottom: 32px;
 }
 
 .idea img {
     width: 60px;
     height: 60px;
+      
     margin-right: 32px;
 }
 
@@ -119,22 +132,28 @@ footer a {
 
 #modal {
     background: #FF5E84;
+
     position: absolute;
     top: 0;
+
     width: 100vw;
     height: 100vw;
+
     display: flex;
     justify-content: center;
+
     transition: 400ms;
 }
 
 #modal .content {
     margin-top: 128px;
+
     color: white;
 }
 
 #modal .content h1 {
     text-align: center;
+
     text-transform: uppercase;
 }
 
@@ -194,24 +213,33 @@ form a {
 form a:hover {
     background: #FFF;
     color: #FF5E84;
+
     text-decoration: none;
 }
 
 form button {
     background: white;
+
     width: 150px;
     height: 40px;
+
     border-radius: 6px;
+
     cursor: pointer;
+
     margin-top: 32px;
+
     grid-column: 2;
+
     justify-self: end;
+
     transition: 400ms;
 }
 
 form button:hover {
     background-color: #0984E3;
     color: white;
+    
     text-decoration: none;
 }
 
