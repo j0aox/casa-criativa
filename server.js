@@ -2,17 +2,24 @@
 const express = require("express");
 const server = express();
 
-// Configurar arquivos estáticos (css, js, index)
+// Configurar arquivos estáticos (css, scripts, imagens)
 server.use(express.static("public"));
+
+// Configuração do nunjucks
+const nunjucks = require("nunjucks");
+nunjucks.configure("views", {
+    express: server,
+})
+
 
 // Criando uma rota
 // capturando o pedido para responder
 server.get("/", function(req, res) {
-    return res.sendFile(__dirname + "/index.html");
+    return res.render("index.html");
 })
 
 server.get("/ideias", function(req, res) {
-    return res.sendFile(__dirname + "/ideias.html");
+    return res.render("ideias.html");
 })
 
 // Lingando servidor na porta 3000
