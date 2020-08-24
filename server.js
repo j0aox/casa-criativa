@@ -38,6 +38,9 @@ const db = require("./db"); // db = db.js
 // Configurar arquivos estáticos (css, scripts, imagens)
 server.use(express.static("public"));
 
+// Habilitar uso do req.body
+server.use(express.urlencoded({ extended: true }))
+
 // Configuração do nunjucks
 const nunjucks = require("nunjucks");
 nunjucks.configure("views", {
@@ -79,6 +82,39 @@ server.get("/ideias", function(req, res) {
             return res.render("ideias.html", { ideas: reversedIdeas });
         }
     })
+})
+
+server.post("/", function(req, res) {
+    // return res.send("OK");
+    //console.log(req.body);
+
+    // Inserir dado na tabela
+    const query = `
+    INSERT INTO ideas(
+        image,
+        title,
+        category,
+        description,
+        link
+     ) VALUES (?,?,?,?,?);      
+     `
+
+     const values = [
+        req.body.image,
+        req.body.title,
+        req.body.category,
+        req.body.description,
+        req.body.link,
+    ]
+
+     db.run(query, values, function(err) {
+        if (err) {
+            console.log(err);
+            return res.send("Erro no banco de dados!");
+        } else {
+            return res.redirect("/ideias");
+        }
+    });
 })
 
 // Lingando servidor na porta 3000
